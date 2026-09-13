@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "twila-parcelemais"
+version = "1.0.0"
+description = "SDK oficial em Python para a API do Parcele+ (crédito direto ao consumidor e parcelamento no momento da compra)"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Twila Digital" }]
+requires-python = ">=3.9"
+keywords = ["parcelemais", "cdc", "sdk", "twila"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = ["httpx>=0.24,<1"]
+
+[project.urls]
+Homepage = "https://github.com/Twila-Digital/twila-parcelemais-python-sdk"
+Repository = "https://github.com/Twila-Digital/twila-parcelemais-python-sdk"
+Issues = "https://github.com/Twila-Digital/twila-parcelemais-python-sdk/issues"
+Documentation = "https://documentacao.parcelemais.com.br"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-cov>=5",
+  "respx>=0.21",
+  "mypy>=1.11",
+  "ruff>=0.6",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/twila_parcelemais"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["twila_parcelemais"]
+mypy_path = "src"
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["UP007"]
+
+[tool.coverage.run]
+source = ["twila_parcelemais"]
