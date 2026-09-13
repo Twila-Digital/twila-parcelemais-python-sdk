@@ -19,7 +19,7 @@ def main() -> int:
 
     path = sys.argv[1]
 
-    with open(path, "r", encoding="utf-8") as handle:
+    with open(path, encoding="utf-8") as handle:
         sarif = json.load(handle)
 
     runs = sarif.get("runs") or []

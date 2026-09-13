@@ -1,5 +1,5 @@
 from functools import lru_cache
-from typing import Any, Dict
+from typing import Any
 
 import httpx
 
@@ -7,7 +7,7 @@ SWAGGER_URL = "https://api.staging.parcelemais.com.br/integration/swagger/v1/swa
 
 
 @lru_cache(maxsize=1)
-def fetch_staging_schema() -> Dict[str, Any]:
+def fetch_staging_schema() -> dict[str, Any]:
     response = httpx.get(SWAGGER_URL, timeout=30.0)
 
     if response.status_code != 200:

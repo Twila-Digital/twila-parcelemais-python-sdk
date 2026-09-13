@@ -1,7 +1,6 @@
 import re
 
 import pytest
-
 from openapi_schema_fixture import fetch_staging_schema
 
 EXPECTED_PATHS = [
@@ -35,7 +34,9 @@ def test_endpoint_exists_in_staging_schema(expected_path: str) -> None:
 
     matches = any(_normalize(real_path).endswith(_normalize(expected_path)) for real_path in paths)
 
-    assert matches, f"Endpoint '{expected_path}' não encontrado no swagger.json de staging — o SDK e o backend divergiram."
+    assert matches, (
+        f"Endpoint '{expected_path}' não encontrado no swagger.json de staging — o SDK e o backend divergiram."
+    )
 
 
 def test_order_response_schema_has_fields_order_mapper_expects() -> None:
@@ -51,4 +52,6 @@ def test_order_response_schema_has_fields_order_mapper_expects() -> None:
     properties = order_schema_entry.get("properties") or {}
 
     for expected_field in ["id", "numero", "status", "documentoCliente", "criadoEm"]:
-        assert expected_field in properties, f"Campo '{expected_field}' esperado pelo mapper não existe (mais) no schema de staging."
+        assert expected_field in properties, (
+            f"Campo '{expected_field}' esperado pelo mapper não existe (mais) no schema de staging."
+        )
