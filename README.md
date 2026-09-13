@@ -21,7 +21,7 @@ SDK oficial em Python para a API do [Parcele+](https://www.cartaosimples.com.br)
 
 | Runtime | Versões aceitas |
 | --- | --- |
-| Python | 3.9 ou superior (CI cobre 3.9, 3.10, 3.11, 3.12 e 3.13) |
+| Python | 3.9 ou superior (CI cobre 3.9, 3.10, 3.11, 3.12, 3.13 e 3.14) |
 
 Cliente síncrono, baseado em [httpx](https://www.python-httpx.org/), com tipos totalmente anotados (`py.typed`, PEP 561).
 
@@ -149,7 +149,7 @@ Verifica a assinatura HMAC-SHA256 do cabeçalho e a janela de replay (5 minutos)
 
 ## Qualidade, segurança e cobertura
 
-- **Build/Test** (`ci.yml`) — `mypy --strict` + suíte de testes (`pytest` + `respx`) em Python 3.9–3.13.
+- **Build/Test** (`ci.yml`) — `mypy --strict` + suíte de testes (`pytest` + `respx`) em Python 3.9–3.14.
 - **Quality** (`quality.yml`) — análise estática via Codacy CLI (pylint), resultados publicados na aba **Security → Code scanning** do repositório.
 - **Security** (`security.yml`) — [CodeQL](https://codeql.github.com/) para Python, rodando a cada PR/push e semanalmente.
 - **Coverage** — cobertura de testes coletada via `pytest-cov` e publicada no [Codecov](https://codecov.io/gh/Twila-Digital/twila-parcelemais-python-sdk).
