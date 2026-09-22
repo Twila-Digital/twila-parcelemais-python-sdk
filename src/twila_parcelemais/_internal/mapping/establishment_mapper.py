@@ -67,6 +67,9 @@ def establishment_to_public(wire: dict[str, Any]) -> Establishment:
     address = wire.get("endereco")
     disbursement_model = wire.get("modeloDesembolso")
 
+    if disbursement_model is not None:
+        disbursement_model = DisbursementModel.from_wire_value(disbursement_model)
+
     return Establishment(
         establishment_id=wire["estabelecimentoId"],
         document=wire["documento"],
@@ -78,7 +81,7 @@ def establishment_to_public(wire: dict[str, Any]) -> Establishment:
             email=wire["responsavel"]["email"],
             phone=wire["responsavel"]["celular"],
         ),
-        disbursement_model=DisbursementModel.from_wire_value(disbursement_model) if disbursement_model is not None else None,
+        disbursement_model=disbursement_model,
         bank_account=EstablishmentBankAccount(
             bank_number=bank_account["banco"],
             agency_number=bank_account["agencia"],

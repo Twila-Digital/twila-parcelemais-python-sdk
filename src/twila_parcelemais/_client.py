@@ -3,9 +3,9 @@ from ._internal.auth.token_api_client import TokenApiClient
 from ._internal.http.api_request_executor import ApiRequestExecutor
 from .config.client_options import ParceleMaisClientOptions, resolve_client_options
 from .customers.client import CustomersClient
+from .establishments.client import EstablishmentsClient
 from .orders.client import OrdersClient
 from .simulations.client import SimulationsClient
-from .establishments.client import EstablishmentsClient
 from .webhooks.client import WebhooksClient
 
 

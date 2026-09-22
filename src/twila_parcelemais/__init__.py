@@ -16,6 +16,19 @@ from .errors import (
     ParceleMaisWebhookSignatureError,
     ProblemDetails,
 )
+from .establishments.client import EstablishmentsClient
+from .establishments.types import (
+    BankAccountType,
+    CreateEstablishmentRequest,
+    CreateEstablishmentResult,
+    DisbursementModel,
+    Establishment,
+    EstablishmentAddress,
+    EstablishmentBankAccount,
+    EstablishmentOwner,
+    ListEstablishmentsRequest,
+    UpdateEstablishmentRequest,
+)
 from .orders.client import OrdersClient
 from .orders.types import Address as OrderAddress
 from .orders.types import (
@@ -34,19 +47,6 @@ from .simulations.types import (
     SimulateInstallmentsRequest,
     SimulateValuesRequest,
     ValuesSimulation,
-)
-from .establishments.client import EstablishmentsClient
-from .establishments.types import (
-    BankAccountType,
-    CreateEstablishmentRequest,
-    CreateEstablishmentResult,
-    DisbursementModel,
-    Establishment,
-    EstablishmentAddress,
-    EstablishmentBankAccount,
-    EstablishmentOwner,
-    ListEstablishmentsRequest,
-    UpdateEstablishmentRequest,
 )
 from .webhooks.client import WebhooksClient
 from .webhooks.types import (

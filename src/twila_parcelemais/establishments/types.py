@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from enum import IntEnum
 from typing import Optional
 
+
 class DisbursementModel(IntEnum):
     ESTABLISHMENT_CHAIN = 1
     ESTABLISHMENT = 2
