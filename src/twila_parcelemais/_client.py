@@ -5,6 +5,7 @@ from .config.client_options import ParceleMaisClientOptions, resolve_client_opti
 from .customers.client import CustomersClient
 from .orders.client import OrdersClient
 from .simulations.client import SimulationsClient
+from .establishments.client import EstablishmentsClient
 from .webhooks.client import WebhooksClient
 
 
@@ -22,6 +23,7 @@ class ParceleMaisClient:
         self.orders = OrdersClient(self._executor, resolved.resilience.invoice_upload_attempt_timeout_ms)
         self.simulations = SimulationsClient(self._executor)
         self.customers = CustomersClient(self._executor)
+        self.establishments = EstablishmentsClient(self._executor)
         self.webhooks = WebhooksClient(self._executor)
 
     def close(self) -> None:

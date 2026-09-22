@@ -35,6 +35,19 @@ from .simulations.types import (
     SimulateValuesRequest,
     ValuesSimulation,
 )
+from .establishments.client import EstablishmentsClient
+from .establishments.types import (
+    BankAccountType,
+    CreateEstablishmentRequest,
+    CreateEstablishmentResult,
+    DisbursementModel,
+    Establishment,
+    EstablishmentAddress,
+    EstablishmentBankAccount,
+    EstablishmentOwner,
+    ListEstablishmentsRequest,
+    UpdateEstablishmentRequest,
+)
 from .webhooks.client import WebhooksClient
 from .webhooks.types import (
     CreateWebhookRequest,
@@ -86,6 +99,18 @@ __all__ = [
     "CustomerAddress",
     "Customer",
     "ListCustomersRequest",
+    # establishments
+    "EstablishmentsClient",
+    "DisbursementModel",
+    "BankAccountType",
+    "EstablishmentOwner",
+    "EstablishmentBankAccount",
+    "EstablishmentAddress",
+    "Establishment",
+    "CreateEstablishmentRequest",
+    "CreateEstablishmentResult",
+    "UpdateEstablishmentRequest",
+    "ListEstablishmentsRequest",
     # webhooks
     "WebhooksClient",
     "WebHookType",
