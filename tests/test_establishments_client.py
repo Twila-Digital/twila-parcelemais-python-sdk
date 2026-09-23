@@ -161,7 +161,7 @@ def test_list_without_filters_sends_no_query(mock_router: respx.MockRouter, clie
     route = mock_router.get("v1/establishment/list").mock(return_value=httpx.Response(200, json=[]))
 
     assert client.establishments.list() == []
-    assert str(route.calls.last.request.url.query) == ""
+    assert not route.calls.last.request.url.params
 
 
 def test_list_inactive_sends_false(mock_router: respx.MockRouter, client: ParceleMaisClient) -> None:
