@@ -16,6 +16,19 @@ from .errors import (
     ParceleMaisWebhookSignatureError,
     ProblemDetails,
 )
+from .establishments.client import EstablishmentsClient
+from .establishments.types import (
+    BankAccountType,
+    CreateEstablishmentRequest,
+    CreateEstablishmentResult,
+    DisbursementModel,
+    Establishment,
+    EstablishmentAddress,
+    EstablishmentBankAccount,
+    EstablishmentOwner,
+    ListEstablishmentsRequest,
+    UpdateEstablishmentRequest,
+)
 from .orders.client import OrdersClient
 from .orders.types import Address as OrderAddress
 from .orders.types import (
@@ -86,6 +99,18 @@ __all__ = [
     "CustomerAddress",
     "Customer",
     "ListCustomersRequest",
+    # establishments
+    "EstablishmentsClient",
+    "DisbursementModel",
+    "BankAccountType",
+    "EstablishmentOwner",
+    "EstablishmentBankAccount",
+    "EstablishmentAddress",
+    "Establishment",
+    "CreateEstablishmentRequest",
+    "CreateEstablishmentResult",
+    "UpdateEstablishmentRequest",
+    "ListEstablishmentsRequest",
     # webhooks
     "WebhooksClient",
     "WebHookType",

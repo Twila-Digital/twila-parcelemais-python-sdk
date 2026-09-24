@@ -3,6 +3,7 @@ from ._internal.auth.token_api_client import TokenApiClient
 from ._internal.http.api_request_executor import ApiRequestExecutor
 from .config.client_options import ParceleMaisClientOptions, resolve_client_options
 from .customers.client import CustomersClient
+from .establishments.client import EstablishmentsClient
 from .orders.client import OrdersClient
 from .simulations.client import SimulationsClient
 from .webhooks.client import WebhooksClient
@@ -22,6 +23,7 @@ class ParceleMaisClient:
         self.orders = OrdersClient(self._executor, resolved.resilience.invoice_upload_attempt_timeout_ms)
         self.simulations = SimulationsClient(self._executor)
         self.customers = CustomersClient(self._executor)
+        self.establishments = EstablishmentsClient(self._executor)
         self.webhooks = WebhooksClient(self._executor)
 
     def close(self) -> None:
