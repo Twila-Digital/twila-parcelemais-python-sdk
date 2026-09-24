@@ -93,11 +93,12 @@ pedido_id = client.orders.create(
 | `client.orders` | `create`, `get`, `list`, `start_cdc_sale`, `import_invoice` |
 | `client.simulations` | `simulate_installments`, `simulate_values` |
 | `client.customers` | `get`, `list` |
-| `client.webhooks` | `create`, `list`, `update`, `delete` |
+| `client.establishments` | `create`, `get`, `list`, `update`, `update_bank_account`, `activate`, `deactivate` |
+| `client.webhooks` | `create`, `list`, `list_audit`, `update`, `delete` |
 
 ## Paginação
 
-`orders.list(...)` e `customers.list(...)` retornam um `PagedResult[T]` — sem auto-paginação, você controla explicitamente o avanço de página:
+`orders.list(...)`, `customers.list(...)` e `webhooks.list_audit(...)` retornam um `PagedResult[T]` — sem auto-paginação, você controla explicitamente o avanço de página:
 
 ```python
 from twila_parcelemais import ListOrdersRequest

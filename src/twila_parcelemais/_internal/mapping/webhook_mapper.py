@@ -4,6 +4,7 @@ from ...webhooks.types import (
     CreateWebhookRequest,
     UpdateWebhookRequest,
     Webhook,
+    WebhookAudit,
     WebHookAuthenticationType,
     WebHookType,
 )
@@ -14,6 +15,17 @@ def webhook_to_public(wire: dict[str, Any]) -> Webhook:
         type=WebHookType.from_wire_value(wire["tipo"]),
         url=wire["url"],
         authentication_type=WebHookAuthenticationType.from_wire_value(wire["tipoAutenticacao"]),
+    )
+
+
+def webhook_audit_to_public(wire: dict[str, Any]) -> WebhookAudit:
+    return WebhookAudit(
+        id=wire["id"],
+        type=WebHookType.from_wire_value(wire["tipo"]),
+        request=wire["requisicao"],
+        response=wire["resposta"],
+        status_code=wire["statusCode"],
+        created_at=wire["dataCriacao"],
     )
 
 

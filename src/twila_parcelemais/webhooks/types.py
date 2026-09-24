@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from enum import IntEnum
 from typing import Optional
 
-from ..orders.types import OrderStatus
+from ..orders.types import DateLike, OrderStatus
 
 
 class WebHookType(IntEnum):
@@ -58,6 +58,27 @@ class UpdateWebhookRequest:
     url: str
     authentication_type: WebHookAuthenticationType
     credential: Optional[str] = None
+
+
+@dataclass(frozen=True)
+class WebhookAudit:
+    id: str
+    type: WebHookType
+    request: str
+    response: str
+    status_code: int
+    created_at: str
+
+
+@dataclass(frozen=True)
+class ListWebhookAuditRequest:
+    start_date: Optional[DateLike] = None
+    end_date: Optional[DateLike] = None
+    order_id: Optional[str] = None
+    order_number: Optional[int] = None
+    status_code: Optional[int] = None
+    page: int = 1
+    page_size: int = 10
 
 
 @dataclass(frozen=True)
