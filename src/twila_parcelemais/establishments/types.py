@@ -77,7 +77,7 @@ class CreateEstablishmentRequest:
     disbursement_model: DisbursementModel
     owner: EstablishmentOwner
     bank_account: EstablishmentBankAccount
-    address: Optional[EstablishmentAddress] = None
+    address: EstablishmentAddress
 
 @dataclass(frozen=True)
 class CreateEstablishmentResult:

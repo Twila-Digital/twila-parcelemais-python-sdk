@@ -52,9 +52,11 @@ from .webhooks.client import WebhooksClient
 from .webhooks.types import (
     CreateWebhookRequest,
     CreateWebhookResult,
+    ListWebhookAuditRequest,
     OrderWebhookEvent,
     UpdateWebhookRequest,
     Webhook,
+    WebhookAudit,
     WebHookAuthenticationType,
     WebHookType,
 )
@@ -119,6 +121,8 @@ __all__ = [
     "CreateWebhookRequest",
     "CreateWebhookResult",
     "UpdateWebhookRequest",
+    "WebhookAudit",
+    "ListWebhookAuditRequest",
     "OrderWebhookEvent",
     "parse_webhook_event",
     "compute_webhook_signature",

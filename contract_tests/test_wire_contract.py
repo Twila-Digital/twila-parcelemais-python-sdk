@@ -16,6 +16,7 @@ EXPECTED_PATHS = [
     "/v1/customer/paged",
     "/v1/webhooks",
     "/v1/webhooks/{type}",
+    "/v1/webhooks/auditoria",
 ]
 
 

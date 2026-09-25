@@ -93,27 +93,6 @@ def test_create_sends_wire_body_and_returns_id(mock_router: respx.MockRouter, cl
     assert body["endereco"]["cep"] == "01310100"
 
 
-def test_create_without_address_sends_none(mock_router: respx.MockRouter, client: ParceleMaisClient) -> None:
-    route = mock_router.post("v1/establishment").mock(
-        return_value=httpx.Response(200, json={"estabelecimentoId": ESTABLISHMENT_ID})
-    )
-
-    request = new_create_request()
-    client.establishments.create(
-        CreateEstablishmentRequest(
-            document=request.document,
-            legal_name=request.legal_name,
-            trade_name=request.trade_name,
-            disbursement_model=request.disbursement_model,
-            owner=request.owner,
-            bank_account=request.bank_account,
-        )
-    )
-
-    body = json.loads(route.calls.last.request.content)
-    assert body["endereco"] is None
-
-
 def test_get_maps_establishment(mock_router: respx.MockRouter, client: ParceleMaisClient) -> None:
     mock_router.get(f"v1/establishment/{ESTABLISHMENT_ID}").mock(
         return_value=httpx.Response(200, json=ESTABLISHMENT_WIRE)

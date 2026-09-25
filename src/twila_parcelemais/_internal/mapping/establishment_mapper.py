@@ -50,7 +50,7 @@ def create_establishment_request_to_wire(request: CreateEstablishmentRequest) ->
             "celular": request.owner.phone,
         },
         "contaBancaria": bank_account_to_wire(request.bank_account),
-        "endereco": address_to_wire(request.address) if request.address else None,
+        "endereco": address_to_wire(request.address),
     }
 
 
